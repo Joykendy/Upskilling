@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <style>
+body{
+    min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+background-color:maroon;
+justify-content: center;
+ 
+
+}
+.container {
+    align-items: center;
+text-align: center;
+ width: 350px;
+ height: 450px;   
+  background:white;
+  padding: 30px 65px;
+  border-radius: 20px;
+  row-gap: 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  margin: 10;
+  padding: 10;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+
+}
+form button{
+    margin:auto
+    display:block}
+
+
+form button.active {
+  background:blue;
+  pointer-events: auto;
+  align-items: center;
+}
+form button:hover {
+  background: #0ebcf1;
+}
+.flex-box {
+    display: flex;
+  
+  justify-content: center;
+  align-items: center;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flex-box">
+        
+        <img id="logo"src="C:\Users\admin\Desktop\equity logo.png" width="100px">
+    </div>
+        <h4>Enter your login credentials</h4>
+
+        <form>
+            <div class="input-field">
+    
+                <label >Email:</label><br>
+                <input type="text" maxlength="100" required placeholder="user@gmail.com"><br>
+
+                <br><label>Password:</label><br>
+
+                <input type="password" maxlength="8" placeholder="Enter your password" required >
+                
+
+                <br><br><button  type="button" onclick="verifypassword()">Submit</button>
+                </div>
+        </form>
+        <h5>Not registered? <a href="create.html">create an account</a></h5>
+    </div>
+
+</body>
+</html>

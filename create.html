@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <style>
+body{
+    min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+background-color:maroon;
+justify-content: center;
+ 
+
+}
+.container {
+    align-items: center;
+text-align: center;
+ width: 400px;
+ height: 600px;   
+  background:white;
+  padding: 30px 65px;
+  border-radius: 20px;
+  row-gap: 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  margin: 10;
+  padding: 10;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+
+}
+form button{
+    margin:auto
+    display:block}
+
+
+form button.active {
+  background:blue;
+  pointer-events: auto;
+  align-items: center;
+}
+form button:hover {
+  background: #0ebcf1;
+}
+.flex-box {
+    display: flex;
+  
+  justify-content: center;
+  align-items: center;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flex-box">
+        
+        <img id="logo"src="C:\Users\admin\Desktop\equity logo.png" width="100px">
+    </div>
+        <h4>Enter your login credentials</h4>
+
+        <form>
+            <div class="input-field">
+    
+                <label >First Name:</label><br>
+                <input type="text" maxlength="100" placeholder="'John"><br>
+
+                <br><label>Last Name:</label><br>
+                <input type="text" maxlength="8" placeholder="'Smith'" required ><br>
+                
+                <br><label >Email:</label><br>
+                <input type="text" maxlength="100" placeholder="user@gmail.com"><br>
+
+                <br><br<label >Password:</label><br>
+                <input type="password" maxlength="100" placeholder="user@gmail.com"><br>
+
+                <br><label >Password confirmation:</label><br>
+                <input type="password" maxlength="100"  placeholder="user@gmail.com"><br>
+
+                <br><br><button  type="button" onclick="verifypassword()">Sign UP</button>
+
+                </div>
+        </form>
+        <h5>Already have an account?Go to <a href="login.html">login</a></h5>
+    </div>
+
+</body>
+</html>
+
+

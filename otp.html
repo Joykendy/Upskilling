@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Verification Form</title>
+    <style>
+        /* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:maroon;
+}
+:where(.container, form, .input-field, header) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  background:white;
+  padding: 30px 65px;
+  border-radius: 12px;
+  row-gap: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.container header {
+  height: 65px;
+  width: 65px;
+  background:black
+  ;
+  color: #fff;
+  font-size: 2.5rem;
+  border-radius: 50%;
+}
+.container h4 {
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: 500;
+}
+.container h5{
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: 500;
+
+}
+form .input-field {
+  flex-direction: row;
+  column-gap: 10px;
+}
+.input-field input {
+  height: 45px;
+  width: 42px;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1.125rem;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+.input-field input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.input-field input::-webkit-inner-spin-button,
+.input-field input::-webkit-outer-spin-button {
+  display: none;
+}
+form button {
+  margin-top: 25px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  padding: 9px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  /* pointer-events: none; */
+  /* background: 'maroon'; */
+  background-color: maroon;
+  transition: all 0.2s ease;
+}
+form button.active {
+  background: maroon;
+  pointer-events: auto;
+}
+
+#logo
+{margin-bottom:20px;
+  width: 100px;
+  height: 100px;
+
+}
+#authenticate{margin-bottom:10px;
+  width: 80px;
+  height: 80px;
+
+
+}
+    </style>
+    
+  </head>
+  <body>
+    <div class="container">
+      <img id="logo" src="C:\Users\admin\Desktop\equity logo.png" alt=" Equity_logo">
+      <h6>Receive OTP via <a href="#">SMS</a> or <a href="#">EMAIL</a>?</h6>
+      <h4>Enter OTP code</h4>
+      <form>
+        <div class="input-field">
+          <input type="number" maxlength="1" oninput="moveToNext(this, 2)" />
+          <input type="number" maxlength="1" oninput="moveToNext(this, 3)" />
+          <input type="number" maxlength="1" oninput="moveToNext(this, 4)" />
+          <input type="number" maxlength="1" oninput="moveToNext(this, null)" />
+        </div>
+        <h6>Didn't receive OTP</h6>
+        <h6><a href="#">Resend</a></h6>
+
+        <!-- <button>Verify</button> -->
+        
+        <button type="button" disabled onclick="verifyOTP()">Verify OTP</button>
+       
+      </form>
+    </div>
+
+    <script>
+      // Ensure inputs is defined before using it
+      const inputs = document.querySelectorAll(".input-field input");
+      const button = document.querySelector("button");
+
+      inputs.forEach((input, index1) => {
+        input.addEventListener("input", (e) => {
+          const currentInput = input;
+          const nextInput = input.nextElementSibling;
+          const prevInput = input.previousElementSibling;
+
+          // Handle "Backspace" key
+          if (e.inputType === "deleteContentBackward" && currentInput.value.length === 0) {
+            if (prevInput) {
+              prevInput.focus();
+            }
+          }
+
+          // Handle normal input
+          if (currentInput.value.length >= 1) {
+            if (nextInput) {
+              nextInput.focus();
+            }
+          }
+
+          // Handle reaching the end
+          if (index1 === inputs.length - 1 && currentInput.value.length === 1) {
+            button.disabled = false;
+            button.focus();
+          }
+        });
+      });
+
+      function moveToNext(currentInput, nextInputIndex) {
+        const maxLength = parseInt(currentInput.getAttribute('maxlength'));
+        const currentInputValue = currentInput.value;
+
+        if (currentInputValue.length >= maxLength) {
+          if (nextInputIndex !== null) {
+            const nextInput = document.querySelector(
+              `.input-field input:nth-child(${nextInputIndex})`
+            );
+            if (nextInput) {
+              nextInput.focus();
+            }
+          }
+        }
+      }
+
+      function verifyOTP() {
+        // Add your OTP verification logic here
+        alert('Login successful!');
+      }
+    </script>
+  </body>
+</html>
+
+
+
